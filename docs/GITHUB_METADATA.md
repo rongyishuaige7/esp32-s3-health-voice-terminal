@@ -3,7 +3,7 @@
 ## Description
 
 ```text
-Educational ESP32-S3 health-information voice terminal with WakeNet, XFYun streaming ASR/TTS, DeepSeek SSE, LVGL, and dual-I2S audio.
+基于 ESP32-S3、WakeNet、讯飞流式 ASR/TTS、DeepSeek SSE、LVGL 与双 I²S 音频的健康科普语音终端教学原型。
 ```
 
 ## Topics
