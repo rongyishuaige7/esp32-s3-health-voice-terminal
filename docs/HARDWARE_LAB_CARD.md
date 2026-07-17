@@ -1,10 +1,10 @@
-# Hardware Lab card
+# Hardware Lab 索引卡片
 
 ```yaml
-name: ESP32-S3 Health Voice Terminal
+name: ESP32-S3 健康科普语音终端
 platform: ESP32-S3 · ESP-IDF · ESP-SR · DeepSeek · XFYun · LVGL
 summary: 健康科普语音交互教学原型，覆盖本地唤醒、双 I²S 音频、流式听写、DeepSeek SSE、按句 TTS 与 ST7789 状态显示。
-status: Source-confirmed · Hardware-free source contracts passed · ESP-IDF 5.5.2 clean build verified · Current hardware and live-cloud end-to-end re-test not run
+status: 源码与硬件无关契约已确认 · ESP-IDF 5.5.2 干净构建已验证 · 当前硬件与真实云端端到端链路尚未重新真机复测
 media_scope: 当前没有实物照片、演示视频、EDA、PCB 或制造文件；公开源码推导的 BOM 与接线边界图。
 known_boundaries:
   - 不是医疗器械，不提供诊断、处方、急救或经过验证的健康建议。

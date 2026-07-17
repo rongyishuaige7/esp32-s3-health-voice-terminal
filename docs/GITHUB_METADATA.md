@@ -1,4 +1,4 @@
-# GitHub metadata
+# GitHub 元数据
 
 ## Description
 

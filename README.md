@@ -1,4 +1,4 @@
-# ESP32-S3 Health Voice Terminal
+# ESP32-S3 健康科普语音终端
 
 > ESP32-S3 健康科普语音终端教学原型：本地唤醒与录音，配合云端 ASR、DeepSeek 对话和 TTS，在 ST7789 屏幕展示问答状态。
 
@@ -12,11 +12,11 @@
 ## 当前证据
 
 ```text
-Source-confirmed
-Hardware-free source contracts passed
-ESP-IDF 5.5.2 clean build verified
-Offline scenario-file validation passed
-Current board, audio, display and live cloud end-to-end re-test not run
+源码已确认
+硬件无关源码契约已通过
+ESP-IDF 5.5.2 干净构建已验证
+离线场景文件检查已通过
+当前开发板、音频、显示与真实云端端到端链路尚未重新真机复测
 ```
 
 CI 使用空凭据构建，不连接讯飞或 DeepSeek，不证明真实 ASR、模型回复、TTS、首包延迟、语音质量或硬件运行。完整边界见 [项目状态](docs/PROJECT_STATUS.md) 和 [验证说明](docs/VERIFICATION.md)。

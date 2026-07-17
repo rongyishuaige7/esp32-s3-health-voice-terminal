@@ -1,26 +1,26 @@
-# Project status
+# 项目状态
 
-> Status date: 2026-07-17
+> 状态日期：2026-07-17
 
-| Layer | Current evidence | Not established |
+| 层级 | 当前证据 | 尚未证明 |
 |:--|:--|:--|
-| Source | Authoritative source, archives and exclusions documented | Original dirty Git staging is not treated as release history |
-| Repository | Secret scan, structure, file-size, BOM/SVG and claim contracts pass | No claim that the old source directory was release-ready |
-| Offline tooling | Python compile, unit/source contracts and scenario JSON-only validation pass | No live DeepSeek quality, cost or safety evaluation |
-| Firmware | Clean ESP-IDF 5.5.2 `esp32s3` build passes with empty credentials | Current board not flashed; Flash/PSRAM assumptions not physically confirmed |
-| Wake/audio/display | Source and dependency configuration present | No current WakeNet, INMP441, MAX98357A, speaker or ST7789 re-test |
-| Cloud chain | IAT `0→1*→2`, DeepSeek SSE and TTS queue source contracts checked | No live XFYun/DeepSeek call, first-packet timing, recognition or playback proof |
-| Health content | Fixed educational prompt and warning boundaries present | No medical accuracy, safety, clinical evaluation or regulatory status |
-| Media/EDA | None claimed | No current photos, video, schematic, PCB or manufacturing files |
+| 源码 | 权威来源、归档与排除项已记录 | 原始目录中的脏 Git 暂存状态不作为发布历史 |
+| 仓库 | 敏感信息、结构、文件大小、BOM/SVG 与声明契约检查通过 | 不声称旧源码目录本身已达到可发布状态 |
+| 离线工具 | Python 编译、单元/源码契约与仅解析 JSON 的场景检查通过 | 未评估真实 DeepSeek 调用质量、费用或安全性 |
+| 固件 | 空凭据下 ESP-IDF 5.5.2 `esp32s3` 干净构建通过 | 当前开发板未烧录，Flash/PSRAM 假设未由实物确认 |
+| 唤醒/音频/显示 | 源码与依赖配置存在 | 当前 WakeNet、INMP441、MAX98357A、扬声器和 ST7789 未复测 |
+| 云端链路 | 已检查 IAT `0→1*→2`、DeepSeek SSE 与 TTS 队列源码契约 | 没有真实讯飞/DeepSeek 调用、首包时间、识别或播放证据 |
+| 健康内容 | 存在固定科普提示词和风险警示 | 不具备医学准确率、安全性、临床评估或监管资质证据 |
+| 媒体/EDA | 未声称存在 | 当前没有照片、视频、原理图、PCB 或制造文件 |
 
-Canonical summary:
+权威状态摘要：
 
 ```text
-Source-confirmed
-Hardware-free source contracts passed
-ESP-IDF 5.5.2 clean build verified
-Offline scenario-file validation passed
-Current board, audio, display and live cloud end-to-end re-test not run
+源码已确认
+硬件无关源码契约已通过
+ESP-IDF 5.5.2 干净构建已验证
+离线场景文件检查已通过
+当前开发板、音频、显示与真实云端端到端链路尚未重新真机复测
 ```
 
-Unsupported labels include medical device, diagnosis verified, treatment advice verified, safe health advice, R1 online, ASR/TTS verified, low latency verified, hardware verified, production ready, always available and emergency support.
+不得使用的标签包括：医疗器械、诊断已验证、治疗建议已验证、健康建议安全、R1 在线、ASR/TTS 已验证、低延迟已验证、硬件已验证、生产就绪、始终在线或紧急支持。
