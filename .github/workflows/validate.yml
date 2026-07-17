@@ -48,6 +48,7 @@ jobs:
       - name: Build ESP32-S3 firmware with empty cloud credentials
         shell: bash
         run: |
+          . "$IDF_PATH/export.sh"
           idf.py set-target esp32s3
           idf.py build
       - name: Upload firmware build evidence

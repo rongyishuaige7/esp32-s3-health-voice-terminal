@@ -47,6 +47,15 @@ class SourceContracts(unittest.TestCase):
             r'#if CONFIG_CLOUD_TTS_USE_XFYUN_WS\s+#include "xfyun_tts_ws.h"\s+#endif',
         )
 
+    def test_ci_activates_the_esp_idf_container(self) -> None:
+        workflow = read(".github/workflows/validate.yml")
+        activation = '. "$IDF_PATH/export.sh"'
+        target = "idf.py set-target esp32s3"
+        build = "idf.py build"
+        self.assertIn("image: espressif/idf:v5.5.2", workflow)
+        self.assertLess(workflow.index(activation), workflow.index(target))
+        self.assertLess(workflow.index(target), workflow.index(build))
+
     def test_iat_frame_order_contract(self) -> None:
         src = read("components/cloud_api/xfyun_iat_ws.c")
         first = src.index('cJSON_AddNumberToObject(data, "status", 0)')
