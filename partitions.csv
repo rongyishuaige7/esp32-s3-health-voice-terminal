@@ -1,0 +1,6 @@
+# Name,   Type, SubType, Offset,   Size, Flags
+nvs,      data, nvs,     0x9000,   0x6000,
+phy_init, data, phy,     0xf000,   0x1000,
+factory,  app,  factory, 0x10000,  0x300000,
+# esp-sr WakeNet 等模型由构件生成 srmodels.bin 并烧录到此处（须与 menuconfig 所选模型一致）
+model,    data, spiffs,  0x310000, 0x600000,

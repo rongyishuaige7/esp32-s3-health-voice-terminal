@@ -1,0 +1,148 @@
+menu "医疗问答终端配置"
+
+config WIFI_SSID
+    string "Wi-Fi SSID"
+    default "YOUR_WIFI_SSID"
+    help
+        接入点名称。
+
+config WIFI_PASSWORD
+    string "Wi-Fi 密码"
+    default "YOUR_WIFI_PASSWORD"
+    help
+        WPA2/WPA3 密码。
+
+config DEEPSEEK_API_KEY
+    string "DeepSeek API Key"
+    default ""
+    help
+        从 https://platform.deepseek.com 获取；留空则 LLM 步骤跳过并返回错误（ESP_ERR_INVALID_STATE）。
+
+config DEEPSEEK_API_BASE
+    string "DeepSeek API Base URL"
+    default "https://api.deepseek.com"
+    help
+        OpenAI 兼容接口根地址，勿带尾斜杠。
+
+config DEEPSEEK_MODEL
+    string "DeepSeek 模型名"
+    default "deepseek-chat"
+    help
+        例如 deepseek-reasoner（R1 推理）或 deepseek-chat。
+
+config CHAIN_STREAMING
+    bool "流式链路（边录边传 ASR + SSE LLM + 按句 TTS 播放）"
+    depends on CLOUD_ASR_USE_XFYUN_WS && CLOUD_TTS_USE_XFYUN_WS
+    default y
+    help
+        开启后降低首包延迟；关闭则使用原有「整段 WAV → 串行 ASR/LLM/TTS」路径便于调试。
+
+config CLOUD_ASR_USE_XFYUN_WS
+    bool "使用讯飞语音听写（流式 WebSocket）作为 ASR"
+    default n
+    help
+        对齐 https://www.xfyun.cn/doc/asr/voicedictation/API.html
+        控制台 https://console.xfyun.cn/services/iat 开通「语音听写（流式版）」。
+        wss://iat-api.xfyun.cn/v2/iat ，使用下方讯飞 AppID/APIKey/APISecret。
+
+config CLOUD_ASR_URL
+    string "语音识别 HTTPS URL（留空跳过 ASR）"
+    depends on !CLOUD_ASR_USE_XFYUN_WS
+    default ""
+    help
+        关闭讯飞 ASR 时：兼容 OpenAI Whisper 的 /v1/audio/transcriptions 端点，或自建网关。
+        示例：https://api.openai.com/v1/audio/transcriptions
+
+config CLOUD_ASR_TOKEN
+    string "ASR Bearer Token"
+    depends on !CLOUD_ASR_USE_XFYUN_WS
+    default ""
+    help
+        与 CLOUD_ASR_URL 配套的 Authorization Bearer。
+
+config CLOUD_TTS_URL
+    string "语音合成 HTTPS URL（留空则仅显示文本）"
+    default ""
+    help
+        使用「通用 HTTP」模式时：POST JSON {"text":"..."}，响应为裸 PCM。
+        若启用讯飞 WebSocket，本项可留空。
+
+config CLOUD_TTS_TOKEN
+    string "TTS Bearer Token（可留空则复用 ASR Token）"
+    default ""
+    help
+        仅用于通用 HTTP 模式；讯飞模式使用下方 API 密钥。
+
+config CLOUD_TTS_USE_XFYUN_WS
+    bool "使用讯飞在线语音合成（WebSocket 流式 API）"
+    default y
+    help
+        对齐文档 https://www.xfyun.cn/doc/tts/online_tts/API.html
+        wss://tts-api.xfyun.cn/v2/tts ，鉴权与 JSON 与文档一致。
+
+config XFYUN_APP_ID
+    string "讯飞 AppID"
+    default ""
+    depends on CLOUD_TTS_USE_XFYUN_WS || CLOUD_ASR_USE_XFYUN_WS
+    help
+        控制台应用 AppID；需对该应用开通「语音听写（流式版）」与/或「语音合成（流式版）」。
+
+config XFYUN_API_KEY
+    string "讯飞 APIKey"
+    default ""
+    depends on CLOUD_TTS_USE_XFYUN_WS || CLOUD_ASR_USE_XFYUN_WS
+
+config XFYUN_API_SECRET
+    string "讯飞 APISecret"
+    default ""
+    depends on CLOUD_TTS_USE_XFYUN_WS || CLOUD_ASR_USE_XFYUN_WS
+
+config XFYUN_IAT_DOMAIN
+    string "讯飞听写 domain（应用领域）"
+    depends on CLOUD_ASR_USE_XFYUN_WS
+    default "iat"
+    help
+        iat：日常用语（默认，一般账号即可）。
+        medical 等垂直领域须在控制台语音听写流式版「高级功能」中单独开通，否则会 11200/licc。
+        详见 WebAPI 业务参数 domain。
+
+config XFYUN_IAT_LANGUAGE
+    string "讯飞听写 language"
+    depends on CLOUD_ASR_USE_XFYUN_WS
+    default "zh_cn"
+    help
+        如 zh_cn、en_us；小语种以控制台为准。
+
+config XFYUN_IAT_ACCENT
+    string "讯飞听写 accent（方言）"
+    depends on CLOUD_ASR_USE_XFYUN_WS
+    default "mandarin"
+    help
+        中文时常用 mandarin；方言参数见官方文档。
+
+config XFYUN_TTS_VCN
+    string "讯飞发音人参数 vcn"
+    default "xiaoyan"
+    depends on CLOUD_TTS_USE_XFYUN_WS
+    help
+        如 xiaoyan、x4_xiaoyan 等，需在控制台已添加该发音人。
+
+config VOICE_ENERGY_FALLBACK
+    bool "音量门限触发（可不喊唤醒词，大声说话开始一轮录音）"
+    default y
+    help
+        麦克风 RMS 超过阈值约 0.35s 即开始一轮录音。与 WakeNet 并行：未检测到唤醒词时仍可用音量触发。
+        环境噪音大易误触时可关闭或提高 RMS 阈值。
+
+config VOICE_ENERGY_RMS_MIN
+    int "音量触发 RMS 阈值（静音约几百，正常说话约 1000~5000）"
+    depends on VOICE_ENERGY_FALLBACK
+    default 2500
+
+config WAKENET_MODEL_NAME
+    string "ESP-SR WakeNet 模型名"
+    default "wn9_hilexin"
+    help
+        乐鑫内置中文唤醒「你好乐鑫」等，详见 esp-sr 文档模型列表。
+
+endmenu

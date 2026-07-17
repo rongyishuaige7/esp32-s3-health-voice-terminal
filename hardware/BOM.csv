@@ -1,0 +1,9 @@
+Designator,Item,Quantity,Source-confirmed specification,Needs physical confirmation,Notes
+MCU,ESP32-S3 development board,1,ESP-IDF target esp32s3 with defaults for 16 MB Flash and Octal PSRAM,Exact board module Flash PSRAM USB and regulator,Do not flash incompatible memory settings
+MIC,INMP441 I2S microphone breakout,1,16 kHz 16-bit mono left-slot default,Exact breakout supply decoupling and L/R wiring,Logic and supply treated as 3.3 V
+AMP,MAX98357A I2S amplifier breakout,1,I2S1 BCLK WS DOUT,Exact module VIN gain and peak current,Confirm power separately from GPIO
+SPK,Speaker,1,PCM playback through MAX98357A,Impedance power rating and enclosure,Must match the amplifier and supply
+LCD,ST7789 SPI display,1,240x240 SPI2 with CS DC RST and BL,Exact module controller voltage and backlight circuit,GPIO13 is assumed to be BL enable not high-current LED drive
+PSU,Regulated power supply,1,ESP32 plus Wi-Fi display and audio load,Voltage peak current ripple and regulator headroom,Use current limiting for first bring-up
+WIRE,Interconnect and common ground,as needed,GPIO map in HARDWARE.md,Connector type wire length and shielding,Audio wiring and ground quality affect noise
+USB,USB data cable,1,Build flash and monitor path,Connector and data capability,Charge-only cable will not flash
