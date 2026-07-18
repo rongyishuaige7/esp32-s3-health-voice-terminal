@@ -4,7 +4,6 @@
 
 [![Validate](https://github.com/rongyishuaige7/esp32-s3-health-voice-terminal/actions/workflows/validate.yml/badge.svg)](https://github.com/rongyishuaige7/esp32-s3-health-voice-terminal/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/Code-MIT-f97316.svg)](LICENSE)
-[![Hardware retest](https://img.shields.io/badge/hardware-not%20retested-6e7781.svg)](docs/PROJECT_STATUS.md)
 
 > [!CAUTION]
 > 这是本科软硬件学习原型，**不是医疗器械、医生、诊断系统、处方系统或急救服务**。固定提示词不能保证模型输出安全、准确或完整。任何症状、用药和紧急情况都应以合格专业人员及当地急救渠道为准。
