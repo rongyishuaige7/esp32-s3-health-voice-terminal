@@ -9,6 +9,15 @@
 > [!CAUTION]
 > 这是本科软硬件学习原型，**不是医疗器械、医生、诊断系统、处方系统或急救服务**。固定提示词不能保证模型输出安全、准确或完整。任何症状、用药和紧急情况都应以合格专业人员及当地急救渠道为准。
 
+## Historical material evidence (2026-07-18 publication)
+
+sanitized historical photo(s). See [MEDIA_EVIDENCE](docs/MEDIA_EVIDENCE.md) for dates, sanitization, omissions, and evidence limits.
+
+![Historical ESP32-S3 voice-terminal prototype, 2026-04-26](assets/photos/historical-prototype.jpg)
+
+Historical media/EDA do not prove that the current public commit was flashed or re-tested on hardware. **Current hardware re-test not run.**
+
+
 ## 当前证据
 
 ```text
