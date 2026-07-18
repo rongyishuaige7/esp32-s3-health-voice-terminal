@@ -1,24 +1,24 @@
-# Media and EDA evidence
+# 历史素材与 EDA 证据
 
-> Publication review: 2026-07-18
+> 发布审查：2026-07-18
 
-## Source and handling
+## 来源与处理
 
-- Authoritative originals remain unchanged in the local Hardware Lab material center.
-- This repository contains reviewable, sanitized derivatives only; it does not contain or modify the authoritative originals.
-- Media/EDA prove only the narrow historical facts stated below. They do **not** prove that the current public commit was flashed, run, electrically reviewed, or re-tested on physical hardware.
-- No physical-device re-test was run in this publication pass.
+- 本地 Hardware Lab 素材中心中的权威原件保持不变。
+- 本仓库仅包含可审查的脱敏衍生文件；不包含、不修改权威原件。
+- 照片、截图或 EDA 仅证明下文明确列出的有限历史事实；它们**不**证明当前公开提交已烧录、运行、完成电气审查或真机复测。
+- 本次发布未进行真机复测。
 
-## Published derivatives
+## 已公开的脱敏衍生文件
 
-| Public path | Historical date / source date | Sanitization | Narrow evidence boundary |
+| 公开路径 | 历史日期 / 来源日期 | 脱敏处理 | 有限证据边界 |
 |:--|:--|:--|:--|
-| `assets/photos/historical-prototype.jpg` | 2026-04-26 | EXIF/GPS and other image metadata removed; resized from a copy | Historical terminal prototype photo. |
+| `assets/photos/historical-prototype.jpg` | 2026-04-26 | 已移除 EXIF/GPS 及其他图片元数据；从副本缩放处理 | 历史终端原型照片。 |
 
-## Rejected or omitted material
+## 拒绝或未公开的材料
 
-Files not listed above were not copied into this repository. Typical reasons include a duplicate/misfiled document, private identifiers, stale UI semantics, incomplete wiring information, or weak value relative to the public evidence boundary. The original local files remain unchanged.
+未列于上表的文件没有复制到本仓库。常见原因包括重复或错投文件、私人标识、过时界面语义、接线信息不完整，或相对公开证据边界的价值不足。本地原件保持不变。
 
-## Status rule
+## 状态规则
 
-Current hardware re-test not run. Historical media or EDA must not be promoted to current-commit hardware verification.
+当前未进行真机复测。历史照片、截图或 EDA 不得提升为当前提交的真机验证证据。

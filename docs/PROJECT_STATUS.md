@@ -25,8 +25,8 @@ ESP-IDF 5.5.2 干净构建已验证
 
 不得使用的标签包括：医疗器械、诊断已验证、治疗建议已验证、健康建议安全、R1 在线、ASR/TTS 已验证、低延迟已验证、硬件已验证、生产就绪、始终在线或紧急支持。
 
-## Historical media and EDA added on 2026-07-18
+## 2026-07-18 新增的历史素材与 EDA
 
-sanitized historical photo(s). See [MEDIA_EVIDENCE](MEDIA_EVIDENCE.md) for dates, sanitization, omissions, and evidence limits.
+已脱敏的历史照片。日期、脱敏处理、未公开材料和证据边界见 [MEDIA_EVIDENCE](MEDIA_EVIDENCE.md)。
 
-This publication update adds historical evidence only. Current hardware re-test not run.
+本次发布仅新增历史证据。当前未进行真机复测。
