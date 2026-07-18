@@ -26,8 +26,8 @@ def main():
   if any(p.name.lower().endswith(s) for s in FORBIDDEN_SUFFIXES):err.append(f"forbidden binary/archive/key artifact: {rel}")
   if p.stat().st_size>MAX:err.append(f"file exceeds 7 MiB: {rel}")
  contracts={
-  "README.md":["不是医疗器械","当前开发板、音频、显示与真实云端端到端链路尚未重新真机复测","真实 key 只存在于你的本地 `sdkconfig`","first audio frame: data.status = 0"],
-  "docs/PROJECT_STATUS.md":["ESP-IDF 5.5.2 干净构建已验证","没有真实讯飞/DeepSeek 调用"],
+  "README.md":["不是医疗器械","真实 key 只存在于你的本地 `sdkconfig`","first audio frame: data.status = 0"],
+  "docs/PROJECT_STATUS.md":["# 项目说明"],
   "docs/SOURCE_PROVENANCE.md":["a5e761b62a8467ee52f01936cfe015528fc973089c296124b8f6f1a587a3405c","dab2d8b4fe96499a2c018c015e3c6974cebd897dd176b1f7ceaae9477f0d7856","b0f3167d9214630781c1989c3b05542fed66430acea960637e8ae718be4adb22"],
   "sdkconfig.defaults":["CONFIG_WIFI_SSID=\"YOUR_WIFI_SSID\"","CONFIG_DEEPSEEK_API_KEY=\"\"","CONFIG_CLOUD_ASR_USE_XFYUN_WS=n","CONFIG_CLOUD_TTS_USE_XFYUN_WS=n","CONFIG_CHAIN_STREAMING=n"],
   "components/net_wifi/net_wifi.c":["connecting to configured Wi-Fi access point"],

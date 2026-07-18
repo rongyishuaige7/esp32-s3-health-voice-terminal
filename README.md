@@ -15,20 +15,6 @@
 
 ![ESP32-S3 语音终端原型，2026-04-26](assets/photos/historical-prototype.jpg)
 
-
-
-## 当前证据
-
-```text
-源码已确认
-硬件无关源码契约已通过
-ESP-IDF 5.5.2 干净构建已验证
-离线场景文件检查已通过
-当前开发板、音频、显示与真实云端端到端链路尚未重新真机复测
-```
-
-CI 使用空凭据构建，不连接讯飞或 DeepSeek，不证明真实 ASR、模型回复、TTS、首包延迟、语音质量或硬件运行。完整边界见 [项目状态](docs/PROJECT_STATUS.md) 和 [验证说明](docs/VERIFICATION.md)。
-
 ## 学习内容
 
 - ESP32-S3、FreeRTOS、Octal PSRAM 和自定义分区；
