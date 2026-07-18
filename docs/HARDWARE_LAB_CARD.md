@@ -13,4 +13,4 @@ known_boundaries:
   - 当前 ESP32-S3、INMP441、MAX98357A、ST7789 与端到端云链路未重新真机复测。
 ```
 
-- **历史媒体 / EDA：** 已加入经脱敏的历史衍生材料；范围和版本差异见 [`MEDIA_EVIDENCE.md`](MEDIA_EVIDENCE.md)。它们不证明当前公开提交已完成真机复测。
+- **项目素材：** 已补充项目照片、界面截图和相关资料；范围和版本差异见 [`MEDIA_EVIDENCE.md`](MEDIA_EVIDENCE.md)。
