@@ -8,7 +8,7 @@
 > [!CAUTION]
 > 这是本科软硬件学习原型，**不是医疗器械、医生、诊断系统、处方系统或急救服务**。固定提示词不能保证模型输出安全、准确或完整。任何症状、用药和紧急情况都应以合格专业人员及当地急救渠道为准。
 
-## 项目照片与资料
+## 项目资料
 
 这里整理了项目照片、界面截图和相关资料；文件处理说明见 [MEDIA_EVIDENCE](docs/MEDIA_EVIDENCE.md)。
 
@@ -23,7 +23,6 @@
 - DeepSeek Chat Completions 与 SSE 增量解析；
 - 按句 TTS、PCM StreamBuffer 和 I²S 播放；
 - LVGL + ST7789 240×240 状态与问答显示；
-- 云端配置、隐私、医疗声明和证据边界。
 
 ## 任务因果链
 
@@ -82,7 +81,7 @@ idf.py build
 bash scripts/verify.sh
 ```
 
-## 本地配置与真实 key 边界
+## 本地配置
 
 ```bash
 idf.py menuconfig
@@ -99,7 +98,6 @@ idf.py menuconfig
 
 1. 真实 key 只存在于你的本地 `sdkconfig`，仓库和 CI 不提供 relay，也没有“本地 relay 授权”可替代服务商 key；
 2. DeepSeek、讯飞及自建 ASR/TTS 的凭据彼此独立，不要混用；
-3. `sdkconfig` 被忽略并不代表 key 安全：凭据会编译进固件，能接触设备或固件 Artifact 的人可能提取它们；
 4. 不要提交 `sdkconfig`、串口日志、带查询参数的讯飞 WebSocket URL或固件二进制；
 5. 推荐使用专用、低额度、可轮换的测试凭据，泄露后立即撤销。
 
@@ -154,14 +152,10 @@ partitions.csv           app 与 ESP-SR model 分区
 sdkconfig.defaults       可公开、无真实凭据的默认配置
 ```
 
-## 公开范围与已知限制
+## 注意事项
 
-- 没有公开实物照片、演示视频、EDA、PCB 或制造文件；
-- 没有将旧 `.git`、二次源码压缩包、IDE/Codex 状态或本地 `sdkconfig` 带入新历史；
 - 大型 C 字模是从 Apache-2.0 的 Droid Sans Fallback 生成的派生数据，来源见 [第三方声明](THIRD_PARTY_NOTICES.md)；
-- 本轮没有重新烧录保留的实物，也没有调用真实讯飞/DeepSeek 账号；
-- 没有评估识别准确率、回答安全性、首包延迟、功耗或稳定运行时长；
-- CI Artifact 仅用于构建证据且会过期，不能作为预配置可直接使用的产品固件。
+- CI Artifact 用于保留构建记录，保留期有限。
 
 ## 许可证与学术诚信
 
