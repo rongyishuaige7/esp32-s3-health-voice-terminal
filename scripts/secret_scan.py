@@ -11,7 +11,7 @@ PATTERNS=[
  ("AWS access key",re.compile(r"\bAKIA[0-9A-Z]{16}\b")),
  ("DeepSeek/OpenAI-style key",re.compile(r"\bsk-[A-Za-z0-9_-]{16,}\b")),
  ("private LAN literal",re.compile(r"\b(?:192\.168\.\d{1,3}\.\d{1,3}|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3})\b")),
- ("local home path",re.compile(r"/home/(?!rongyi/\.espressif/)[A-Za-z0-9._-]+/")),
+ ('local home path', re.compile(r"/(?:Users|home)/[A-Za-z0-9_.-]+/")),
  ("Windows user path",re.compile(r"(?i)\b[A-Z]:\\Users\\[^\\\s]+")),
  ("signed XFYun URL",re.compile(r"wss://[^\s]+\?authorization=[A-Za-z0-9%_-]{20,}")),
  ("generic assigned secret",re.compile(r"(?ix)\b(api[_-]?key|api[_-]?secret|access[_-]?token|auth[_-]?token|password|passwd|pwd)\b\s*[:=]\s*[\"']?(?!YOUR_|EXAMPLE|REPLACE|CHANGEME|REDACTED|<YOUR_|\.\.\.|sk-\.\.\.)([A-Za-z0-9+/=_!@#$%^&*.-]{12,})")),
@@ -32,7 +32,6 @@ def main():
    if any(x in line for x in ALLOWED):continue
    for label,pattern in PATTERNS:
     if path.name=="secret_scan.py":continue
-    if label=="local home path" and path.relative_to(root).as_posix()=="docs/SOURCE_PROVENANCE.md":continue
     if pattern.search(line):bad.append(f"{path.relative_to(root)}:{n}: {label}")
  if bad:print("Secret scan: FAIL\n"+"\n".join(sorted(set(bad))),file=sys.stderr);return 1
  print("Secret scan: PASS");return 0

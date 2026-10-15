@@ -23,7 +23,7 @@ python3 -m py_compile "$WORK"/scripts/*.py "$WORK"/tests/*.py "$WORK"/tools/*.py
     python3 tools/eval_offline.py --scenarios tools/eval_scenarios.json
 )
 
-IDF_EXPORT="${IDF_EXPORT:-/home/rongyi/.espressif/v5.5/esp-idf/export.sh}"
+IDF_EXPORT="${IDF_EXPORT:-$HOME/.espressif/v5.5/esp-idf/export.sh}"
 if [[ ! -f "$IDF_EXPORT" ]]; then
   echo "ESP-IDF export script not found: $IDF_EXPORT" >&2
   exit 1

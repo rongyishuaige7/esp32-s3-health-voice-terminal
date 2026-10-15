@@ -11,4 +11,4 @@ tests:
 	python3 -m unittest discover -s tests -v
 
 build:
-	bash -lc 'source /home/rongyi/.espressif/v5.5/esp-idf/export.sh >/dev/null && idf.py build'
+	bash -lc 'source "$${IDF_EXPORT:-$$HOME/.espressif/v5.5/esp-idf/export.sh}" >/dev/null && idf.py build'

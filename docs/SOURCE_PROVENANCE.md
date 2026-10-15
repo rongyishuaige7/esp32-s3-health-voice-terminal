@@ -4,10 +4,10 @@
 
 | Object | Role | Evidence | Rule |
 |:--|:--|:--|:--|
-| `/mnt/shared/2026项目/基于 ESP32 与 DeepSeek R1 的智能医疗问答终端.zip` | Read-only historical archive | SHA-256 `a5e761b62a8467ee52f01936cfe015528fc973089c296124b8f6f1a587a3405c`; public-source comparison matched the desktop tree before publication edits | Never edited or repacked |
-| `/home/rongyi/桌面/基于 ESP32 与 DeepSeek R1 的智能医疗问答终端` | Read-only authoritative source | 55 non-`.git` files; source manifest SHA-256 `dab2d8b4fe96499a2c018c015e3c6974cebd897dd176b1f7ceaae9477f0d7856`; files dated through 2026-04-28 | Not cleaned or committed in place |
+| `source-archives/2026项目/基于 ESP32 与 DeepSeek R1 的智能医疗问答终端.zip` | Read-only historical archive | SHA-256 `a5e761b62a8467ee52f01936cfe015528fc973089c296124b8f6f1a587a3405c`; public-source comparison matched the desktop tree before publication edits | Never edited or repacked |
+| `~/桌面/基于 ESP32 与 DeepSeek R1 的智能医疗问答终端` | Read-only authoritative source | 55 non-`.git` files; source manifest SHA-256 `dab2d8b4fe96499a2c018c015e3c6974cebd897dd176b1f7ceaae9477f0d7856`; files dated through 2026-04-28 | Not cleaned or committed in place |
 | source `medical_voice_terminal.tar.gz` | Older nested snapshot | SHA-256 `b0f3167d9214630781c1989c3b05542fed66430acea960637e8ae718be4adb22`; lacks later stream-pipe files and differs from current source | Excluded as a duplicate historical package |
-| `/home/rongyi/桌面/esp32-s3-health-voice-terminal` | Clean publication candidate | Fresh Git history and explicit exclusions | All public hardening occurs here |
+| `~/桌面/esp32-s3-health-voice-terminal` | Clean publication candidate | Fresh Git history and explicit exclusions | All public hardening occurs here |
 
 The desktop and ZIP had the same 54 comparable public-source files before publication work. The desktop directory's Git repository had no commits or branch refs and showed staged/unstaged work, so it was not imported as trustworthy public history.
 
